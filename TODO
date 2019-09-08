@@ -11,6 +11,9 @@ Todo:
   ✔ Replace the evaluated string @created(19-09-08 18:07) @started(19-09-08 18:07) @done(19-09-08 18:56) @lasted(49m13s)
   ✘ Do the test extension? @created(19-09-08 14:48) @cancelled(19-09-08 18:57)
   ✔ Handle comment line @created(19-09-08 18:57) @started(19-09-08 19:01) @done(19-09-08 19:38) @lasted(37m7s)
+  ✔ Rename the test @created(19-09-08 19:39) @started(19-09-08 19:39) @done(19-09-08 19:41) @lasted(2m47s)
+  ☐ Add test for language @created(19-09-08 19:39)
+  ☐ Add test for comment line @created(19-09-08 19:39)
   ☐ Handle px value @created(19-09-08 19:19)
   ☐ Add options @created(19-09-07 19:01)
     * Adding the commentary
