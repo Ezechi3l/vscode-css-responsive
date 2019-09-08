@@ -10,14 +10,13 @@
 		"Snippets",
 		"Other"
 	],
+	"publisher": "mrezechi3l",
 	"homepage": "https://github.com/Ezechi3l/vscode-css-responsive",
 	"keywords": [
 		"CSS",
 		"css",
 		"percent",
-		"px %",
-		"%",
-		"px to %",
+		"px to percent",
 		"responsive css",
 		"responsive CSS"
 	],
@@ -42,7 +41,7 @@
 	"contributes": {
 		"configuration": {
 			"type": "object",
-			"title": "CSS-Responsive configuration",
+			"title": "CSS Responsive",
 			"properties": {
 				"CSSResponsive.comments": {
 					"type": "boolean",

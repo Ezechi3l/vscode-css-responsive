@@ -20,8 +20,8 @@ Todo:
     * Float point
     * Think more options?
   ✔ Do it for css, less, sass files @created(19-09-07 19:01) @done(19-09-08 18:58)
-  ☐ Handle all values ? @created(19-09-08 20:01)
+  ✘ Handle all values ? @created(19-09-08 20:01) @cancelled(19-09-08 23:33)
   ✘ Run it globally @created(19-09-07 18:50) @cancelled(19-09-08 18:58)
     Running the extension globally on a file. It may need a regex because of the
     calc method. (\d+)\/(\d+)(;)?
-
+  ✔ Prepare for deploy @created(19-09-08 22:54) @started(19-09-08 21:00) @done(19-09-08 23:33) @lasted(2h33m9s)
