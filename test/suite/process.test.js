@@ -12,45 +12,44 @@ suite('Process Test Suite', () => {
 	const process = new Process({});
 	test('Regex test', () => {
 		assert.equal(
-			'20%', 
-			process.run('width: 20/100'), 
-			"'20/100' should return 20%, '" + process.run('width: 20/100') + "' returned"
-		);
-
-		assert.equal(
-			'', 
-			process.run('100 /20'), 
-			"'100/20' should return an empty string, '" + process.run('100 /20') + "' returned"
+			'20%',
+			process.run('width: 20/100').result,
+			"'20/100' should return 20%, '" + process.run('width: 20/100').result + "' returned"
 		);
 		assert.equal(
-			'6.521739%',
-			process.run('	   width: 15/230'),
-			"'15/230' should return 6.521739%, '" + process.run('15/230') + "' returned"
+			null,
+			process.run('100 /20').result,
+			"'100 /20' should return null, '" + process.run('100 /20').result + "' returned"
 		);
 		assert.equal(
 			'6.521739%',
-			process.run('15/230'),
-			"'15/230' should return 6.521739%, '" + process.run('15/230') + "' returned"
+			process.run('	   width: 15/230').result,
+			"'15/230' should return 6.521739%, '" + process.run('15/230').result + "' returned"
+		);
+		assert.equal(
+			'6.521739%',
+			process.run('15/230').result,
+			"'15/230' should return 6.521739%, '" + process.run('15/230').result + "' returned"
 		);
 		assert.equal(
 			'7.5%',
-			process.run('15/200'),
-			"'15/200' should return 7.5%, '" + process.run('15/200') + "' returned"
+			process.run('15/200').result,
+			"'15/200' should return 7.5%, '" + process.run('15/200').result + "' returned"
 		);
 		assert.equal(
-			'',
-			process.run('width: 100'),
-			"'width: 100' should return an empty string, '" + process.run('width: 100') + "' returned"
+			null,
+			process.run('width: 100').result,
+			"'width: 100' should return null, '" + process.run('width: 100').result + "' returned"
 		);
 		assert.equal(
-			'',
-			process.run('width: calc(100'),
-			"'width: calc(100' should return an empty string, '" + process.run('width: calc(10 ')+ "' returned"
+			null,
+			process.run('width: calc(100').result,
+			"'width: calc(100' should return null, '" + process.run('width: calc(10 ').result + "' returned"
 		);
 		assert.equal(
-			'',
-			process.run('100/0'),
-			"'100/0' should return an empty string, '" + process.run('100/0 ')+ "' returned"
+			null,
+			process.run('100/0').result,
+			"'100/0' should return null, '" + process.run('100/0 ').result + "' returned"
 		);
 	});
 });

@@ -1,23 +1,39 @@
 module.exports = class Process {
 
-    constructor(config) {
-        this.config = config;
-        this.regex = /\d+\/\d+/; 
-    }
+	constructor(config) {
+		this.config = config;
+		this.regex = /\d+\/\d+/;
+		this.setDto();
+	}
 
-    run(line) {
-        if (!this.regex.test(line)) return '';
+	setDto(insertText = null, result = null) {
+		this.dto = {
+			insertText: insertText,
+			result: result
+		};
+	}
 
-        var percent = eval(this.regex.exec(line).pop()) * 100;
+	run(line) {
+		//Reset the dto
+		this.setDto();
 
-        if (Number.isNaN(percent) || percent === Infinity) return '';
+		if (this.regex.test(line)) {
+			var insertText = this.regex.exec(line).pop()
+			var percent = eval(insertText) * 100;
 
-        if (!Number.isInteger(percent)) {
-            percent = Number(Number.parseFloat(percent).toPrecision(7));
-        }
+			if (Number.isNaN(percent) || percent === Infinity) {
+				return this.dto;
+			}
 
-        //toString to remove trailing zeros
-        //percent need to be a number in order to works
-        return percent.toString() + '%';
-    }
+			if (!Number.isInteger(percent)) {
+				percent = Number(
+					Number.parseFloat(percent.toString()).toPrecision(7)
+				);
+			}
+
+			this.setDto(insertText, percent.toString() + '%');
+		}
+
+		return this.dto;
+	}
 }
