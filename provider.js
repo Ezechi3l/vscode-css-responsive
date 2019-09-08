@@ -12,23 +12,24 @@ module.exports = class CSSResponsiveProvider {
 
 			const process = new Process({});
 			const linePrefix = document.lineAt(position).text;
-			const dto = process.run(linePrefix);
+			const dto = process.run(linePrefix, document.languageId);
 
 			if (null === dto.result) {
 				return resolve([]);
 			}
 
 			const item = new vscode.CompletionItem(
-				`${dto.insertText} => ${dto.result}`,
+				`${dto.insertText} => ${dto.resultText}`,
 				vscode.CompletionItemKind.Snippet
 			);
+			// console.log('DOUCMENT', document);
+			item.insertText = dto.resultText;
 
-			item.insertText = dto.result;
 			item.range = new vscode.Range(
 				position.line,
 				position.character - (dto.insertText.length),
 				position.line,
-				position.character
+				linePrefix.length
 			);
 
 			return resolve([item]);

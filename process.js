@@ -6,14 +6,15 @@ module.exports = class Process {
 		this.setDto();
 	}
 
-	setDto(insertText = null, result = null) {
+	setDto(insertText = null, result = null, resultText = null) {
 		this.dto = {
 			insertText: insertText,
-			result: result
+			result: result,
+			resultText: resultText
 		};
 	}
 
-	run(line) {
+	run(line, language) {
 		//Reset the dto
 		this.setDto();
 
@@ -31,7 +32,11 @@ module.exports = class Process {
 				);
 			}
 
-			this.setDto(insertText, percent.toString() + '%');
+			this.setDto(
+				insertText,
+				percent,
+				`${percent.toString()}%${language !== 'sass' ? ';' : ''} /* ${insertText} */`
+			);
 		}
 
 		return this.dto;

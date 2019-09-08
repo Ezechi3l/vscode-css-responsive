@@ -10,7 +10,8 @@ Todo:
   ✔ Explode process's test @created(19-09-08 14:47) @started(19-09-08 17:51) @done(19-09-08 18:03) @lasted(12m10s)
   ✔ Replace the evaluated string @created(19-09-08 18:07) @started(19-09-08 18:07) @done(19-09-08 18:56) @lasted(49m13s)
   ✘ Do the test extension? @created(19-09-08 14:48) @cancelled(19-09-08 18:57)
-  ☐ Handle comment line @created(19-09-08 18:57)
+  ✔ Handle comment line @created(19-09-08 18:57) @started(19-09-08 19:01) @done(19-09-08 19:38) @lasted(37m7s)
+  ☐ Handle px value @created(19-09-08 19:19)
   ☐ Add options @created(19-09-07 19:01)
     * Adding the commentary
     * Float point
