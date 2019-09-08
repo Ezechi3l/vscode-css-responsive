@@ -24,6 +24,12 @@ module.exports = class CSSResponsiveProvider {
 			);
 
 			item.insertText = dto.result;
+			item.range = new vscode.Range(
+				position.line,
+				position.character - (dto.insertText.length),
+				position.line,
+				position.character
+			);
 
 			return resolve([item]);
 		});

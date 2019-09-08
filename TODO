@@ -8,13 +8,15 @@ Todo:
   ✔ Refactorise class process @created(19-09-08 16:18) @started(19-09-08 16:25) @done(19-09-08 17:51) @lasted(1h26m20s)
     The class shoul return the text to remplace too
   ✔ Explode process's test @created(19-09-08 14:47) @started(19-09-08 17:51) @done(19-09-08 18:03) @lasted(12m10s)
-  ☐ Do the test extension? @created(19-09-08 14:48)
+  ✔ Replace the evaluated string @created(19-09-08 18:07) @started(19-09-08 18:07) @done(19-09-08 18:56) @lasted(49m13s)
+  ✘ Do the test extension? @created(19-09-08 14:48) @cancelled(19-09-08 18:57)
+  ☐ Handle comment line @created(19-09-08 18:57)
   ☐ Add options @created(19-09-07 19:01)
     * Adding the commentary
     * Float point
     * Think more options?
-  ☐ Do it for css, less, sass files @created(19-09-07 19:01)
-  ☐ Run it globally @created(19-09-07 18:50)
+  ✔ Do it for css, less, sass files @created(19-09-07 19:01) @done(19-09-08 18:58)
+  ✘ Run it globally @created(19-09-07 18:50) @cancelled(19-09-08 18:58)
     Running the extension globally on a file. It may need a regex because of the
     calc method. (\d+)\/(\d+)(;)?
 
