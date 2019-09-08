@@ -66,4 +66,18 @@ suite('Process Test Suite', () => {
 			"'100/0' should return null, '" + process.run('100/0', 'css').result + "' returned"
 		);
 	});
+	test('It adds a comentary', () => {
+		assert.equal(
+			'40%; /* 20/50 */',
+			process.run('20/50', 'css').resultText,
+			"'20/50' should return 40%; /* 20/50 */, '" + process.run('20/50', 'css').resultText + "' returned"
+		);
+	});
+	test('It doesn\'t add coma in sass', () => {
+		assert.equal(
+			'40% /* 20/50 */',
+			process.run('20/50', 'sass').resultText,
+			"'20/50' should return 40% /* 20/50 */, '" + process.run('20/50', 'sass').resultText + "' returned"
+		);
+	});
 });
