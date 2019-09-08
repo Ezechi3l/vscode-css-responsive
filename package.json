@@ -10,7 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onLanguage:html",
+		"onLanguage:vue",
+		"onLanguage:css",
+		"onLanguage:less",
+		"onLanguage:scss",
+		"onLanguage:sass",
+		"onLanguage:stylus"
 	],
 	"main": "./extension.js",
 	"scripts": {

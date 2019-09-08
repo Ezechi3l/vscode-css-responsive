@@ -3,7 +3,12 @@ Todo:
   ✔ Run basic extension @created(19-09-07 18:59) @started(19-09-07 22:42) @done(19-09-08 00:03) @lasted(1h21m46s)
   ✔ Class process's test @created(19-09-08 11:31) @started(19-09-08 11:26) @done(19-09-08 12:38) @lasted(1h12m42s)
   ✔ Class process @created(19-09-07 19:00) @started(19-09-08 12:41) @done(19-09-08 13:41) @lasted(17s)
-  ☐ Make the completion work ! @created(19-09-08 13:41)
+  ✔ Search best provider for plugin @created(19-09-08 15:09) @started(19-09-08 14:51) @done(19-09-08 15:51) @lasted(50s)
+  ✔ Make the completion work! @created(19-09-08 13:41) @started(19-09-08 15:51) @done(19-09-08 16:18) @lasted(27m42s)
+  ☐ Refactorise class process @created(19-09-08 16:18)
+    The class shoul return the text to remplace too
+  ☐ Explode process's test @created(19-09-08 14:47)
+  ☐ Do the test extension? @created(19-09-08 14:48)
   ☐ Add options @created(19-09-07 19:01)
     * Adding the commentary
     * Float point
