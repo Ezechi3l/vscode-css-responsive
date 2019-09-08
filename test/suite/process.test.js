@@ -10,42 +10,56 @@ suite('Process Test Suite', () => {
 	});
 
 	const process = new Process({});
-	test('Regex test', () => {
+	test('if it works', () => {
 		assert.equal(
 			'20%',
 			process.run('width: 20/100').result,
 			"'20/100' should return 20%, '" + process.run('width: 20/100').result + "' returned"
 		);
+	});
+	test('if space don\'t works', () => {
 		assert.equal(
 			null,
 			process.run('100 /20').result,
 			"'100 /20' should return null, '" + process.run('100 /20').result + "' returned"
 		);
+	});
+	test('if worked on large line', () => {
 		assert.equal(
 			'6.521739%',
 			process.run('	   width: 15/230').result,
 			"'15/230' should return 6.521739%, '" + process.run('15/230').result + "' returned"
 		);
+	});
+	test('if it returns 6 digits maximum before the coma', () => {
 		assert.equal(
 			'6.521739%',
 			process.run('15/230').result,
 			"'15/230' should return 6.521739%, '" + process.run('15/230').result + "' returned"
 		);
+	});
+	test('if it trims digits before comma whom are zeros ', () => {
 		assert.equal(
 			'7.5%',
 			process.run('15/200').result,
 			"'15/200' should return 7.5%, '" + process.run('15/200').result + "' returned"
 		);
+	});
+	test('if numbers only don\'t matches', () => {
 		assert.equal(
 			null,
 			process.run('width: 100').result,
 			"'width: 100' should return null, '" + process.run('width: 100').result + "' returned"
 		);
+	});
+	test('If calc don\'t interfere', () => {
 		assert.equal(
 			null,
 			process.run('width: calc(100').result,
 			"'width: calc(100' should return null, '" + process.run('width: calc(10 ').result + "' returned"
 		);
+	});
+	test('if infinity number works', () => {
 		assert.equal(
 			null,
 			process.run('100/0').result,
