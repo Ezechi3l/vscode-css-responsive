@@ -2,12 +2,24 @@
 	"name": "css-responsive",
 	"displayName": "CSS Responsive",
 	"description": "Simple extension to change a mathematic expression to percent. Usefull in css's file where you can't use mathematic expression!",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
 	"categories": [
+		"Snippets",
 		"Other"
+	],
+	"homepage": "https://github.com/Ezechi3l/vscode-css-responsive",
+	"keywords": [
+		"CSS",
+		"css",
+		"percent",
+		"px %",
+		"%",
+		"px to %",
+		"responsive css",
+		"responsive CSS"
 	],
 	"activationEvents": [
 		"onLanguage:html",
@@ -18,7 +30,33 @@
 		"onLanguage:sass",
 		"onLanguage:stylus"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Ezechi3l/vscode-css-responsive"
+	},
+	"bugs": {
+		"url": "https://github.com/Ezechi3l/vscode-css-responsive/issues",
+		"email": "mrezechi3l@gmail.com"
+	},
 	"main": "./extension.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "CSS-Responsive configuration",
+			"properties": {
+				"CSSResponsive.comments": {
+					"type": "boolean",
+					"default": true,
+					"description": "Add the division as commentary, default: true"
+				},
+				"CSSResponsive.fixedDigits": {
+					"type": "number",
+					"default": 6,
+					"description": "Define the number of decimals, default: 6"
+				}
+			}
+		}
+	},
 	"scripts": {
 		"test": "node ./test/runTest.js"
 	},

@@ -15,7 +15,7 @@ Todo:
   ✔ Add test for language @created(19-09-08 19:39) @started(19-09-08 19:42) @done(19-09-08 19:46) @lasted(4m10s)
   ✔ Add test for comment line @created(19-09-08 19:39) @done(19-09-08 19:46)
   ✔ Handle px value @created(19-09-08 19:19) @started(19-09-08 19:46) @done(19-09-08 20:01) @lasted(15m35s)
-  ☐ Add options @created(19-09-07 19:01)
+  ✔ Add options @created(19-09-07 19:01) @started(19-09-08 20:08) @done(19-09-08 20:44) @lasted(36m58s)
     * Adding the commentary
     * Float point
     * Think more options?

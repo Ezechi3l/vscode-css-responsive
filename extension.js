@@ -6,8 +6,9 @@ const Process = require('./process.js');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	// config = vscode.workspace.getConfiguration('CSSPercent');
-	const process = new Process({});
+
+	const config = vscode.workspace.getConfiguration('CSSResponsive');
+	const process = new Process(config);
 	const provider = new Provider(process);
 
 	const TYPES = [

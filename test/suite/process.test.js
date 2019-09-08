@@ -9,7 +9,17 @@ suite('Process Test Suite', () => {
 		vscode.window.showInformationMessage('Start process tests.');
 	});
 
-	const process = new Process({});
+	//Default config
+	const process = new Process({
+		comments: true,
+		fixedDigits: 6
+	});
+
+	const processWithoutCommentary = new Process({
+		comments: false,
+		fixedDigits: 3
+	});
+
 	test('It works', () => {
 		assert.equal(
 			'20',
@@ -26,9 +36,9 @@ suite('Process Test Suite', () => {
 	});
 	test('it works in large line', () => {
 		assert.equal(
-			'6.521739',
-			process.run('	   width: 15/230', 'css').result,
-			"'15/230' should return 6.521739, '" + process.run('15/230', 'css').result + "' returned"
+			'46.296296',
+			process.run('	   width: 200/432', 'css').result,
+			"'200/432' should return 46.296296, '" + process.run('200/432', 'css').result + "' returned"
 		);
 	});
 	test('It returns 6 digits maximum before the coma', () => {
@@ -66,7 +76,8 @@ suite('Process Test Suite', () => {
 			"'100/0' should return null, '" + process.run('100/0', 'css').result + "' returned"
 		);
 	});
-	test('It adds a comentary', () => {
+
+	test('It adds a commentary', () => {
 		assert.equal(
 			'40%; /* 20/50 */',
 			process.run('20/50', 'css').resultText,
@@ -80,11 +91,32 @@ suite('Process Test Suite', () => {
 			"'20/50' should return 40% /* 20/50 */, '" + process.run('20/50', 'sass').resultText + "' returned"
 		);
 	});
-	test('It works with px value', () => {
+	test('It works with px values', () => {
 		assert.equal(
 			'40%; /* 20px/50px */',
 			process.run('20px/50px', 'css').resultText,
 			"'20px/50px' should return 40%; /* 20px/50px */, '" + process.run('20px/50px', 'css').resultText + "' returned"
+		);
+	});
+	test('It handles the config\'s comment parameter', () => {
+		assert.equal(
+			'40%;',
+			processWithoutCommentary.run('20px/50px', 'css').resultText,
+			"'20px/50px' should return 40%;, '" + processWithoutCommentary.run('20px/50px', 'css').resultText + "' returned"
+		);
+	});
+	test('It handles the config\'s comment parameter in sass', () => {
+		assert.equal(
+			'40%',
+			processWithoutCommentary.run('20px/50px', 'sass').resultText,
+			"'20px/50px' should return 40%, '" + processWithoutCommentary.run('20px/50px', 'css').resultText + "' returned"
+		);
+	});
+	test('It handles the config\'s fixedDigits parameter', () => {
+		assert.equal(
+			'11.765',
+			processWithoutCommentary.run('40/340', 'css').result,
+			"'40/340' should return 11.765, '" + processWithoutCommentary.run('40/340', 'css').result + "' returned"
 		);
 	});
 });

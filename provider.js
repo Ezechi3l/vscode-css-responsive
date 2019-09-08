@@ -10,9 +10,8 @@ module.exports = class CSSResponsiveProvider {
 	provideCompletionItems(document, position) {
 		return new Promise((resolve, reject) => {
 
-			const process = new Process({});
 			const linePrefix = document.lineAt(position).text;
-			const dto = process.run(linePrefix, document.languageId);
+			const dto = this.process.run(linePrefix, document.languageId);
 
 			if (null === dto.result) {
 				return resolve([]);

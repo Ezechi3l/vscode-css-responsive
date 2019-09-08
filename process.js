@@ -14,6 +14,15 @@ module.exports = class Process {
 		};
 	}
 
+	getResultText(percent, language, insertText) {
+		var resultText = `${percent.toString()}%${language !== 'sass' ? ';' : ''}`;
+		if (this.config.comments) {
+			resultText += ` /* ${insertText} */`;
+		}
+
+		return resultText;
+	}
+
 	run(line, language) {
 		//Reset the dto
 		this.setDto();
@@ -29,14 +38,16 @@ module.exports = class Process {
 
 			if (!Number.isInteger(percent)) {
 				percent = Number(
-					Number.parseFloat(percent.toString()).toPrecision(7)
+					Number
+						.parseFloat(percent.toString())
+						.toFixed(this.config.fixedDigits)
 				);
 			}
 
 			this.setDto(
 				insertText,
 				percent,
-				`${percent.toString()}%${language !== 'sass' ? ';' : ''} /* ${insertText} */`
+				this.getResultText(percent, language, insertText)
 			);
 		}
 
