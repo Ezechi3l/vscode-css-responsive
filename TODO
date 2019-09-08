@@ -14,12 +14,13 @@ Todo:
   ✔ Rename the test @created(19-09-08 19:39) @started(19-09-08 19:39) @done(19-09-08 19:41) @lasted(2m47s)
   ✔ Add test for language @created(19-09-08 19:39) @started(19-09-08 19:42) @done(19-09-08 19:46) @lasted(4m10s)
   ✔ Add test for comment line @created(19-09-08 19:39) @done(19-09-08 19:46)
-  ☐ Handle px value @created(19-09-08 19:19)
+  ✔ Handle px value @created(19-09-08 19:19) @started(19-09-08 19:46) @done(19-09-08 20:01) @lasted(15m35s)
   ☐ Add options @created(19-09-07 19:01)
     * Adding the commentary
     * Float point
     * Think more options?
   ✔ Do it for css, less, sass files @created(19-09-07 19:01) @done(19-09-08 18:58)
+  ☐ Handle all values ? @created(19-09-08 20:01)
   ✘ Run it globally @created(19-09-07 18:50) @cancelled(19-09-08 18:58)
     Running the extension globally on a file. It may need a regex because of the
     calc method. (\d+)\/(\d+)(;)?

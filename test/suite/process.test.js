@@ -80,4 +80,11 @@ suite('Process Test Suite', () => {
 			"'20/50' should return 40% /* 20/50 */, '" + process.run('20/50', 'sass').resultText + "' returned"
 		);
 	});
+	test('It works with px value', () => {
+		assert.equal(
+			'40%; /* 20px/50px */',
+			process.run('20px/50px', 'css').resultText,
+			"'20px/50px' should return 40%; /* 20px/50px */, '" + process.run('20px/50px', 'css').resultText + "' returned"
+		);
+	});
 });

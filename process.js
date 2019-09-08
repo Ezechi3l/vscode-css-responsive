@@ -2,7 +2,7 @@ module.exports = class Process {
 
 	constructor(config) {
 		this.config = config;
-		this.regex = /\d+\/\d+/;
+		this.regex = /\d+(px)?\/\d+(px)?$/;
 		this.setDto();
 	}
 
@@ -19,8 +19,9 @@ module.exports = class Process {
 		this.setDto();
 
 		if (this.regex.test(line)) {
-			var insertText = this.regex.exec(line).pop()
-			var percent = eval(insertText) * 100;
+			var insertText = this.regex.exec(line).shift();
+			var expr = insertText.replace(/px/g, "");
+			var percent = eval(expr) * 100;
 
 			if (Number.isNaN(percent) || percent === Infinity) {
 				return this.dto;
