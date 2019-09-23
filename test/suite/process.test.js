@@ -41,6 +41,13 @@ suite('Process Test Suite', () => {
 			"'200/432' should return 46.296296, '" + process.run('200/432', 'css').result + "' returned"
 		);
 	});
+	test('it works with characters after', () => {
+		assert.equal(
+			'10',
+			process.run('	   width: 10/100;;mqs', 'css').result,
+			"'10/100' should return 10, '" + process.run('	   width: 10/100;;mqs', 'css').result + "' returned"
+		);
+	});
 	test('It returns 6 digits maximum before the coma', () => {
 		assert.equal(
 			'6.521739',

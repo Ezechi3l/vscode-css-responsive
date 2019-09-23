@@ -2,7 +2,7 @@ module.exports = class Process {
 
 	constructor(config) {
 		this.config = config;
-		this.regex = /\d+(px)?\/\d+(px)?$/;
+		this.regex = /\d+(px)?\/\d+(px)?/;
 		this.setDto();
 	}
 
