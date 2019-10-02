@@ -133,4 +133,11 @@ suite('Process Test Suite', () => {
 			"'40/340' should return 11.765, '" + processWithoutCommentary.run('40/340', 'css').result + "' returned"
 		);
 	});
+	test('It handles all values units', () => {
+		assert.equal(
+			'10',
+			processWithoutCommentary.run('10vmin/100rem', 'css').result,
+			"'10vmin/100rem' should return 10, '" + processWithoutCommentary.run('10vmin/100rem', 'css').result + "' returned"
+		);
+	});
 });

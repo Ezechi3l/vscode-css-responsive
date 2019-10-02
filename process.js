@@ -2,7 +2,8 @@ module.exports = class Process {
 
 	constructor(config) {
 		this.config = config;
-		this.regex = /-?(\d+)([.]?\d*)?(px)?\/-?(\d+)([.]?\d*)?(px)?/;
+		this.regex = /-?(\d+)([.]?\d*)?(px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax|%)?\/-?(\d+)([.]?\d*)?(px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax|%)?/;
+		this.regex_values = /px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax/g;
 		this.setDto();
 	}
 
@@ -29,7 +30,7 @@ module.exports = class Process {
 
 		if (this.regex.test(line)) {
 			var insertText = this.regex.exec(line).shift();
-			var expr = insertText.replace(/px/g, "");
+			var expr = insertText.replace(this.regex_values, "");
 			var percent = eval(expr) * 100;
 
 			if (Number.isNaN(percent) || percent === Infinity) {
