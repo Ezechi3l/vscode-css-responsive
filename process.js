@@ -17,17 +17,20 @@ module.exports = class Process {
 	}
 
 	getResultText(percent, language, insertText) {
-		var resultText = `${percent.toString()}%`;
-
-		if (this.no_comma_language.indexOf(language) === -1) {
-			resultText += ';';
-		}
+		var resultText = `${percent.toString()}%;`;
 
 		if (this.config.comments) {
 			resultText += ` /* ${insertText} */`;
 		}
+		return this.handleSyntaxLanguage(resultText, language);
+	}
 
-		return resultText;
+	handleSyntaxLanguage(text, language) {
+		if (this.no_comma_language.indexOf(language) > -1) {
+			text = text.replace(';', '').replace('/*', '//').replace('*/', '').trim();
+		}
+
+		return text;
 	}
 
 	run(line, language) {

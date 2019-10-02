@@ -100,9 +100,9 @@ suite('Process Test Suite', () => {
 	});
 	test('It doesn\'t add coma in sass', () => {
 		assert.equal(
-			'40% /* 20/50 */',
+			'40% // 20/50',
 			process.run('20/50', 'sass').resultText,
-			"'20/50' should return 40% /* 20/50 */, '" + process.run('20/50', 'sass').resultText + "' returned"
+			"'20/50' should return 40% // 20/50, '" + process.run('20/50', 'sass').resultText + "' returned"
 		);
 	});
 	test('It works with px values', () => {
@@ -142,9 +142,16 @@ suite('Process Test Suite', () => {
 	});
 	test('It doesn\'t add coma in stylus', () => {
 		assert.equal(
-			'40% /* 20/50 */',
+			'40% // 20/50',
 			process.run('20/50', 'stylus').resultText,
-			"'20/50' should return 40% /* 20/50 */, '" + process.run('20/50', 'stylus').resultText + "' returned"
+			"'20/50' should return 40% // 20/50, '" + process.run('20/50', 'stylus').resultText + "' returned"
+		);
+	});
+	test('It displays comments based on the syntax\'s language', () => {
+		assert.equal(
+			'40% // 20/50',
+			process.run('20/50', 'sass').resultText,
+			"'20/50' should return 40% // 20/50, '" + process.run('20/50', 'sass').resultText + "' returned"
 		);
 	});
 });
