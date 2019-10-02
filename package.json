@@ -6,6 +6,11 @@
 	"engines": {
 		"vscode": "^1.38.0"
 	},
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#e2e2e2",
+		"theme": "dark"
+	},
 	"categories": [
 		"Snippets",
 		"Other"
