@@ -2,10 +2,10 @@
 
 Simple yet amazing(!) extension to convert a division to percent for css based files.
 
+
 ## Features
 
 ![feature](images/example.gif)
-
 
 ## Requirements
 
@@ -21,3 +21,9 @@ This extension contributes the following settings:
 ### 1.0.0
 
 Initial release
+
+### 1.1.0
+
+Handle all css values unit
+Handle decimales
+Add language syntax specificities (sass, stylus…)
