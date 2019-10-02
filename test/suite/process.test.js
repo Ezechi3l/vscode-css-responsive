@@ -24,7 +24,7 @@ suite('Process Test Suite', () => {
 		assert.equal(
 			'20',
 			process.run('width: 20/100', 'css').result,
-			"'20/100' should return 20, '" + process.run('width: 20/100', 'css').result + "' returned"
+			"'width: 20/100' should return 20, '" + process.run('width: 20/100', 'css').result + "' returned"
 		);
 	});
 	test('It don\'t works is there is space in the expression', () => {
@@ -38,14 +38,21 @@ suite('Process Test Suite', () => {
 		assert.equal(
 			'46.296296',
 			process.run('	   width: 200/432', 'css').result,
-			"'200/432' should return 46.296296, '" + process.run('200/432', 'css').result + "' returned"
+			"'	   width: 200/432, '" + process.run('	   width: 200/432', 'css').result + "' returned"
 		);
 	});
 	test('it works with characters after', () => {
 		assert.equal(
 			'10',
 			process.run('	   width: 10/100;;mqs', 'css').result,
-			"'10/100' should return 10, '" + process.run('	   width: 10/100;;mqs', 'css').result + "' returned"
+			"'	   width: 10/100;;mqs' should return 10, '" + process.run('	   width: 10/100;;mqs', 'css').result + "' returned"
+		);
+	});
+	test('it works with decimales values', () => {
+		assert.equal(
+			'10',
+			process.run('10.0px/100.00px', 'css').result,
+			"'10.0px/100.00px' should return 10, '" + process.run('10.0px/100.00px', 'css').result + "' returned"
 		);
 	});
 	test('It returns 6 digits maximum before the coma', () => {
