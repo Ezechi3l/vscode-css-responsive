@@ -140,4 +140,11 @@ suite('Process Test Suite', () => {
 			"'10vmin/100rem' should return 10, '" + processWithoutCommentary.run('10vmin/100rem', 'css').result + "' returned"
 		);
 	});
+	test('It doesn\'t add coma in stylus', () => {
+		assert.equal(
+			'40% /* 20/50 */',
+			process.run('20/50', 'stylus').resultText,
+			"'20/50' should return 40% /* 20/50 */, '" + process.run('20/50', 'stylus').resultText + "' returned"
+		);
+	});
 });

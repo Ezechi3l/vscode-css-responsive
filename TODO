@@ -29,7 +29,9 @@ Todo:
   V1.1:
     ☐ Add specific sass, stylus comment @created(19-09-09 01:14)
       Use `//` instead of `/* */` for sass syntax
-    ☐ Remove coma on stylus files @created(19-09-09 01:15)
+    ✔ Remove coma on stylus files @created(19-09-09 01:15) @done(19-10-02 14:09)
     ✔ Debug characters after the expression  @high @created(19-09-21 13:22) @started(19-09-23 15:23) @done(19-09-23 15:43) @lasted(20m45s)
     ✔ Handle all values @created(19-09-21 13:30) @done(19-10-02 13:54)
     ✔ Debug decimales values @created(19-09-23 15:30) @high @done(19-10-02 13:38)
+  v1.2:
+    ☐ Handle files with possible inline css (js, html, php, twig etc. )@created(19-10-02 13:58)

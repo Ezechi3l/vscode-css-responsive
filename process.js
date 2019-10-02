@@ -4,6 +4,7 @@ module.exports = class Process {
 		this.config = config;
 		this.regex = /-?(\d+)([.]?\d*)?(px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax|%)?\/-?(\d+)([.]?\d*)?(px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax|%)?/;
 		this.regex_values = /px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax/g;
+		this.no_comma_language = ['sass', 'stylus'];
 		this.setDto();
 	}
 
@@ -16,7 +17,12 @@ module.exports = class Process {
 	}
 
 	getResultText(percent, language, insertText) {
-		var resultText = `${percent.toString()}%${language !== 'sass' ? ';' : ''}`;
+		var resultText = `${percent.toString()}%`;
+
+		if (this.no_comma_language.indexOf(language) === -1) {
+			resultText += ';';
+		}
+
 		if (this.config.comments) {
 			resultText += ` /* ${insertText} */`;
 		}
