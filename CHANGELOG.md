@@ -1,7 +1,9 @@
 # Change Log
 
-All notable changes to the "css-responsive" extension will be documented in this file.
-
-## [V1.0.0]
-
-- Initial release
+## 1.1.0 - 2019-10-03
+### Added
+  + Handle all css values unit
+  + Handle decimales
+  + Add language syntax specificities (sass, stylus…)
+### Fixed
+  + Now work even with characters after the expression
