@@ -3,8 +3,8 @@ module.exports = class Process {
 	constructor(config) {
 		this.config = config;
 		this.regex = /-?(\d+)([.]?\d*)?(px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax|%)?\/-?(\d+)([.]?\d*)?(px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax|%)?/;
-		this.regex_values = /px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax/g;
-		this.no_comma_language = ['sass', 'stylus'];
+		this.regexValues = /px|em|vh|vw|mm|in|pt|pc|ex|ch|rem|vmin|vmax/g;
+		this.noCommaLanguages = ['sass', 'stylus'];
 		this.setDto();
 	}
 
@@ -26,7 +26,7 @@ module.exports = class Process {
 	}
 
 	handleSyntaxLanguage(text, language) {
-		if (this.no_comma_language.indexOf(language) > -1) {
+		if (this.noCommaLanguages.indexOf(language) > -1) {
 			text = text.replace(';', '').replace('/*', '//').replace('*/', '').trim();
 		}
 
@@ -36,10 +36,10 @@ module.exports = class Process {
 	run(line, language) {
 		//Reset the dto
 		this.setDto();
-
+		console.log('CALL');
 		if (this.regex.test(line)) {
 			var insertText = this.regex.exec(line).shift();
-			var expr = insertText.replace(this.regex_values, "");
+			var expr = insertText.replace(this.regexValues, "");
 			var percent = eval(expr) * 100;
 
 			if (Number.isNaN(percent) || percent === Infinity) {
